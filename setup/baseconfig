@@ -53,9 +53,9 @@ set_prompt () {
   done
 
   if [ -n "$statustext" ]; then
-    export PS1="\$statustext\n\u@\h \w \$ "
+    PS1="\033]0;\u@\h\007\$statustext\n\u@\h \W \$ "
   else
-    export PS1="\u@\h \w \$ "
+    PS1="\033]0;\u@\h\007\u@\h \W \$ "
   fi
 }
 
@@ -63,9 +63,9 @@ PROMPT_COMMAND="set_prompt"
 
 _bash_prompt_add() {
     test -z "$1" && return 1
-    
+
     if [ -f ${BASH_PROMPT_HELPERS_DIR}/$1/add_prompt.sh ]; then
-    
+
         source ${BASH_PROMPT_HELPERS_DIR}/$1/add_prompt.sh
     fi
 
