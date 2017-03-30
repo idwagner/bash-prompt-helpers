@@ -53,9 +53,9 @@ set_prompt () {
   done
 
   if [ -n "$statustext" ]; then
-    PS1="\033]0;\u@\h\007\$statustext\n\u@\h \W \$ "
+    PS1="\[\033]0;\u@\h\007\]\$statustext\n[\u@\h \W] \$ "
   else
-    PS1="\033]0;\u@\h\007\u@\h \W \$ "
+    PS1="\[\033]0;\u@\h\007\][\u@\h \W] \$ "
   fi
 }
 

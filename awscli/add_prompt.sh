@@ -3,8 +3,8 @@
 
 function aws-login {
   local envreturn
-  local runtoken="env PATH=${BASH_PROMPT_HELPERS_DIR}/awscli:$PATH \
-    PYTHONPATH=${BASH_PROMPT_HELPERS_DIR}/awscli \
+  local runtoken="env PATH=${BASH_PROMPT_HELPERS_DIR}/awscli/bin:$PATH \
+    PYTHONPATH=${BASH_PROMPT_HELPERS_DIR}/awscli/lib/python2.7/site-packages \
     ${BASH_PROMPT_HELPERS_DIR}/awscli/otptoken.py"
 
   if [ "$1" == "-l" ]; then
@@ -30,7 +30,7 @@ function aws-logout {
 
 
 function aws-token {
-  
+
   if [ "$1" == "-l" ]; then
     ~/bin/winutil/otptoken.py -l
   else
