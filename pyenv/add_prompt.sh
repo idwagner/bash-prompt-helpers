@@ -9,11 +9,11 @@ function venv-prompt {
   # Check $count parent dir names, and if $parent/bin/activate
   # exists (and not already in the virtualenv) activate it
   while [ $count -lt 3 ]; do
-    parent=$(dirname $parent)
+    parent=$(dirname "$parent")
 
-    if [ -n "$parent" ] && [ -f $parent/bin/activate ] \
+    if [ -n "$parent" ] && [ -f "$parent/bin/activate" ] \
         && [ "$parent" != "$VIRTUAL_ENV" ]; then
-      source $parent/bin/activate
+      source "$parent/bin/activate"
       count=999
     fi
     count=$(( $count+1 ))
